@@ -1,61 +1,94 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sito web</title>
+        <link rel="stylesheet" href="/static/stile.css" type="text/css">
+        
+    </head>
+    <body>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Il mio sito</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
+        <style>
+            /* Stile specifico per il contenitore della mappa */
+            #map { 
+                height: 450px; 
+                width: 100%; 
+                border-radius: 8px; 
+                margin: 20px 0; 
+                border: 2px solid #333;
+            }
+        </style>
+        <h1>Esercitazione Web Server</h1>
+        
+        <div class="card">
+            <p id="orario">Clicca per l'ora</p>
+            <button id="btn-ora">Controlla Ora</button>
+        </div>
 
-<body>
+        <hr>
 
-<header>
-    <h1>Benvenuto nel mio sito</h1>
-</header>
+        <div class="card">
+            <h3>Saluto Personalizzato</h3>
+            <input type="text" id="input-nome" placeholder="Scrivi il tuo nome...">
+            <button id="btn-saluto">Invia al Server</button>
+            <h2 id="risposta-saluto"></h2>
+        </div>
 
-<main>
+        <hr>
 
-    <section>
-        <h2>Chi sono</h2>
-        <p>Ciao! mi chiamo Gabriele Zarka e sono un appassionato di informatica</p>
-    </section>
+        <h1>Somma numerica</h1>
+        <input type="number" id="input-num1" placeholder="Inserisci il primo numero...">
+        <input type="number" id="input-num2" placeholder="Inserisci il secondo numero..."">
+        
+        <br>
 
-    <hr>
 
-    <!-- ORARIO -->
-    <div class="container">
-        <h2>Gestione Orario</h2>
-        <p id="orario">Clicca il tasto per conoscere l'ora del server</p>
-        <button id="btn-ora">Aggiorna Ora</button>
-    </div>
+        <input type="radio" name="op" value="add" checked> + <br>
+        <input type="radio" name="op" value="sot"> - <br>
+        <input type="radio" name="op" value="div"> /<br>
+        <input type="radio" name="op" value="mul"> *<br>
 
-    <hr>
+        <br>
+        
+        <button id="btn-calc">Invia al Server</button>
+        <h2 id="risposta"></h2>
 
-    <!-- SALUTO -->
-    <div class="card">
-        <h2>Saluto Personalizzato</h2>
-        <input type="text" id="input-nome" placeholder="Scrivi il tuo nome...">
-        <button id="btn-saluto">Invia al Server</button>
-        <h3 id="risposta-saluto"></h3>
-    </div>
+        <hr>
 
-    <hr>
 
-    <!-- SOMMA NUMERI 🔥 -->
-    <div class="card">
-        <h2>Somma di due numeri</h2>
 
-        <input type="number" id="num1" placeholder="Primo numero">
-        <input type="number" id="num2" placeholder="Secondo numero">
+        <div class="container">
+            <h1>Dashboard Interattiva Milano</h1>
 
-        <button id="btn-somma">Somma</button>
 
-        <h3 id="risultato-somma"></h3>
-    </div>
+            <div class="section">
+                <h3>Cerca Fontanelle nel Quartiere (NIL)</h3>
+                <p><small>Esempi: ADRIANO, DUOMO, LORENTEGGIO, AFFORI</small></p>
+                
+                <div class="control-group">
+                    <input type="text" id="input-nil" placeholder="Nome quartiere...">
+                    <button id="btn-cerca">Cerca e Localizza</button>
+                </div>
 
-</main>
+                <div id="map"></div>
 
-<script src="/static/script.js"></script>
+                <p id="info-risultati"></p>
+                <table id="tabella-fontanelle" border="1" style="display:none; width:100%;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NIL</th>
+                            <th>Municipio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo-tabella"></tbody>
+                </table>
+            </div>
+        </div>
 
-</body>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+        <script src="static/java.js"></script>
+
+    </body>
 </html>
